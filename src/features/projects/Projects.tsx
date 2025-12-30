@@ -114,7 +114,7 @@ export function Projects() {
                   key={t}
                   type="button"
                   size="sm"
-                  variant={filter === t ? 'primary' : 'ghost'}
+                  variant={filter === t ? 'primary' : 'pill'}
                   className={['min-w-[88px] px-3', filter === t && 'text-white !shadow-[0_14px_34px_rgba(249,115,22,0.22)]'].filter(Boolean).join(' ')}
                   onClick={() => setFilter(t)}
                 >

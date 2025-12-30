@@ -33,7 +33,7 @@ const ITEMS = [
     title: 'Learning by doing',
     desc: 'I grow my skills by building projects and iterating on real problems.',
     badge: 'Learning',
-    tone: 'orange',
+    tone: 'rose',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
         <path d="M6 4h9a3 3 0 0 1 3 3v12a1 1 0 0 1-1.4.9L14 19H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" className="stroke-current" strokeWidth="1.8" strokeLinejoin="round" />
@@ -85,7 +85,7 @@ const card: Variants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.85, ease: EASE_OUT }, 
+    transition: { duration: 0.85, ease: EASE_OUT },
   },
 };
 

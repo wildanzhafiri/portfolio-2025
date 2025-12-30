@@ -4,7 +4,23 @@ import { EXPERIENCE_DATA } from './experience.data';
 import type { StoryItem } from './experience.types';
 
 function Chip({ children }: { children: React.ReactNode }) {
-  return <span className="inline-flex items-center rounded-full border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] px-3 py-1 text-xs text-slate-700 dark:text-slate-200 backdrop-blur">{children}</span>;
+  return (
+    <span
+      className="
+        inline-flex items-center rounded-full
+        border border-slate-200/70 dark:border-white/18
+        bg-white/75 dark:bg-white/14
+        px-3 py-1 text-xs font-medium
+        text-slate-700 dark:text-white/90
+        shadow-[0_10px_22px_rgba(2,6,23,0.06)]
+        dark:shadow-[0_18px_40px_rgba(0,0,0,0.35)]
+        ring-1 ring-inset ring-white/50 dark:ring-white/10
+        no-ios-blur
+      "
+    >
+      {children}
+    </span>
+  );
 }
 
 function Dot() {

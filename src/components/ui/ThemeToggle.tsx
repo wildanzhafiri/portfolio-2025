@@ -31,11 +31,11 @@ export function ThemeToggle({ className }: { className?: string }) {
       onClick={toggleTheme}
       variant="toggle"
       size="theme"
-      className={cn('h-10 w-10 p-0 sm:w-auto sm:px-3', 'rounded-full', 'justify-center sm:justify-start', className)}
+      className={cn('h-10 w-auto p-0', 'rounded-full', 'inline-flex items-center justify-center', 'shrink-0', className)}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
-      <span className={cn('relative inline-flex items-center', 'h-9 w-16 rounded-full', 'ring-1 ring-slate-900/10 dark:ring-white/15', 'bg-white/60 dark:bg-white/5 backdrop-blur', 'transition')} aria-hidden="true">
+      <span className={cn('relative inline-flex items-center shrink-0', 'h-9 w-16 rounded-full', 'ring-1 ring-slate-900/10 dark:ring-white/15', 'bg-white/60 dark:bg-white/5 backdrop-blur', 'transition')} aria-hidden="true">
         <span className={cn('absolute inset-0 rounded-full transition-opacity duration-300', isDark ? 'opacity-100 bg-black' : 'opacity-100 bg-gradient-to-r from-orange-500 to-amber-400')} />
 
         <span
@@ -50,8 +50,6 @@ export function ThemeToggle({ className }: { className?: string }) {
           {isDark ? <MoonIcon className="h-4 w-4" /> : <SunIcon className="h-4 w-4" />}
         </span>
       </span>
-
-      <span className="hidden sm:inline ml-2 font-medium text-slate-800 dark:text-slate-100">{isDark ? 'Dark' : 'Light'}</span>
     </Button>
   );
 }

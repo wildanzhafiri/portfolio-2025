@@ -4,21 +4,24 @@ export const PROJECTS: readonly Project[] = [
   {
     id: 'domma',
     title: 'DOMMA — UMKM Cashier & Inventory Management',
-    description: 'A lightweight POS web app for UMKM: fast cashier flow, real-time stock updates, and auto-generated sales reports with a simple dashboard.',
+    description: 'A web-based management system built to help UMKM run daily operations more efficiently by centralizing business processes into a single application.',
     role: 'Front-end Developer',
     tags: ['React', 'TypeScript', 'Tailwind', 'InertiaJS', 'Laravel'],
     highlights: [
+      'Product management with full CRUD operations for inventory items',
       'Fast cashier workflow with auto-recorded transactions',
       'Real-time inventory updates synced to sales activity',
       'Dashboard summary (profit, daily sales, low-stock alerts) + automated reports',
-      'Designed to stay simple for low digital-literacy users (onboarding/tutorial direction)',
+      'Automatic receipt generation for completed transactions',
+      'Role-based access control with different privileges for owners and employees',
     ],
+
     links: {
-      // isi kalau ada
       // live: 'https://...',
       // github: 'https://...',
     },
   },
+
   {
     id: 'bulkyhub',
     title: 'BulkyHub — Bulky Waste Pickup Platform',

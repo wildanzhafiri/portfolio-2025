@@ -78,7 +78,7 @@ export function Hero() {
                 <Button as="a" href="#contact" variant="outline">
                   Let&apos;s Talk
                 </Button>
-                <Button as="a" href="/resume/resume.pdf" download variant="outline">
+                <Button as="a" href={`${import.meta.env.BASE_URL}resume/CV_Muhammad_Wildan_Zhafiri.pdf`} download variant="outline">
                   Download CV
                 </Button>
               </div>

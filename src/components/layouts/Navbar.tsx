@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Container } from './Container';
-// import { ThemeToggle } from '../ui/ThemeToggle';
+import { ThemeToggle } from '../ui/ThemeToggle';
 import { Button } from '../ui/Button';
 
 const NAV = [
@@ -58,6 +58,8 @@ export function Navbar() {
     return current;
   };
 
+  const lockUntilRef = useRef(0);
+
   const scrollToHref = (href: string) => {
     const id = href.replace('#', '');
     const el = document.getElementById(id);
@@ -82,8 +84,6 @@ export function Navbar() {
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
-
-  const lockUntilRef = useRef(0);
 
   useEffect(() => {
     let raf = 0;
@@ -149,20 +149,20 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-white/70 dark:bg-[#070A12]/70 backdrop-blur border-b border-slate-200/60 dark:border-white/10">
-        <Container className="flex items-center justify-between py-3">
+        <Container className="flex items-center justify-between gap-2 py-3">
           <a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
               scrollToHref('#home');
             }}
-            className="font-display font-semibold tracking-tight text-slate-900 dark:text-slate-100"
+            className="shrink-0 font-display font-semibold tracking-tight text-slate-900 dark:text-slate-100"
           >
             Wildan<span className="text-orange-500">.</span>
           </a>
 
-          <div className="hidden md:flex items-center justify-center flex-1 px-6">
-            <div ref={navRef} className={['relative flex items-center gap-8', 'px-4 py-2 rounded-full', 'border border-slate-200/70 dark:border-white/10', 'bg-white/60 dark:bg-white/5', 'shadow-sm'].join(' ')}>
+          <div className="hidden md:flex min-w-0 items-center justify-center flex-1 px-6">
+            <div ref={navRef} className={['relative flex min-w-0 items-center gap-8', 'px-4 py-2 rounded-full', 'border border-slate-200/70 dark:border-white/10', 'bg-white/60 dark:bg-white/5', 'shadow-sm'].join(' ')}>
               {NAV.map((n) => {
                 const isActive = n.href === active;
                 return (
@@ -198,16 +198,16 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <Button as="a" href="/resume/CV_Muhammad_Wildan_Zhafiri.pdf" download size="sm" className="hidden sm:inline-flex rounded-full">
+          <div className="flex shrink-0 items-center gap-2">
+            <Button as="a" href={`${import.meta.env.BASE_URL}resume/CV_Muhammad_Wildan_Zhafiri.pdf`} download size="sm" className="hidden sm:inline-flex rounded-full">
               Download CV
             </Button>
 
-            {/* <ThemeToggle /> */}
+            <ThemeToggle className="shrink-0" />
 
             <button
               type="button"
-              className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-white/5 text-slate-900 dark:text-slate-100 transition hover:bg-white/80 dark:hover:bg-white/10"
+              className="md:hidden shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-white/5 text-slate-900 dark:text-slate-100 transition hover:bg-white/80 dark:hover:bg-white/10"
               aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
@@ -217,25 +217,27 @@ export function Navbar() {
           </div>
         </Container>
       </div>
+
       <div className={['md:hidden fixed inset-0 z-50', 'transition-opacity duration-200', open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'].join(' ')}>
         <div className="absolute inset-0 bg-black/30" onClick={() => setOpen(false)} aria-hidden="true" />
 
         <div
           className={[
-            'absolute left-0 right-0 top-0',
+            'absolute left-0 right-0 top-0 w-full',
             'bg-white/85 dark:bg-[#070A12]/85 backdrop-blur',
             'border-b border-slate-200/60 dark:border-white/10',
             'transition-transform duration-300 ease-out',
+            'max-h-[100vh] overflow-y-auto',
             open ? 'translate-y-0' : '-translate-y-full',
           ].join(' ')}
         >
-          <Container className="py-4">
+          <div className="w-full px-4 py-4">
             <div className="flex items-center justify-between">
               <span className="font-display font-semibold text-slate-900 dark:text-slate-100">Menu</span>
 
               <button
                 type="button"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-white/5 text-slate-900 dark:text-slate-100"
+                className="shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-white/5 text-slate-900 dark:text-slate-100"
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
               >
@@ -255,7 +257,7 @@ export function Navbar() {
                       scrollToHref(n.href);
                     }}
                     className={[
-                      'rounded-2xl px-4 py-3 text-sm font-medium transition',
+                      'w-full rounded-2xl px-4 py-3 text-sm font-medium transition',
                       'border border-slate-200/70 dark:border-white/10',
                       isActive ? 'bg-orange-500/10 text-slate-900 dark:text-white' : 'bg-white/50 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:bg-slate-900/5 dark:hover:bg-white/10',
                     ].join(' ')}
@@ -265,11 +267,11 @@ export function Navbar() {
                 );
               })}
 
-              <Button as="a" href="/resume/CV_Muhammad_Wildan_Zhafiri.pdf" download size="sm" className="mt-2 inline-flex w-full justify-center rounded-2xl sm:hidden" onClick={() => setOpen(false)}>
+              <Button as="a" href={`${import.meta.env.BASE_URL}resume/CV_Muhammad_Wildan_Zhafiri.pdf`} download size="sm" className="mt-2 inline-flex w-full justify-center rounded-2xl sm:hidden" onClick={() => setOpen(false)}>
                 Download CV
               </Button>
             </div>
-          </Container>
+          </div>
         </div>
       </div>
     </header>
