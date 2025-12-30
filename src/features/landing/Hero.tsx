@@ -134,7 +134,7 @@ export function Hero() {
                   <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl opacity-40 bg-[radial-gradient(circle_at_30%_30%,rgba(249,115,22,0.55),transparent_60%)]" />
 
                   <div className="relative aspect-[4/5] w-full max-h-[520px]">
-                    <img src="/images/profile.png" alt="Photo of Wildan" className="h-full w-full object-cover" loading="eager" />
+                    <img src={`${import.meta.env.BASE_URL}/images/profile.png`} alt="Photo of Wildan" className="h-full w-full object-cover" loading="eager" />
 
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_45%),linear-gradient(to_top,rgba(2,6,23,0.64),transparent_55%)]" />
 
