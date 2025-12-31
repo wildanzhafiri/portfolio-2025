@@ -24,7 +24,6 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: () 
         "
       />
 
-
       <div className="relative h-40">
         {project.image ? (
           <img
@@ -38,7 +37,6 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: () 
             "
           />
         ) : null}
-
 
         {!project.image ? (
           <div
@@ -81,7 +79,8 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: () 
               className="
                 text-xl font-semibold leading-snug tracking-tight
                 text-white
-                group-hover:text-orange-200 transition
+               transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:via-orange-500 group-hover:to-orange-600 group-hover:bg-clip-text group-hover:text-transparent
+
                 line-clamp-2
               "
               title={project.title}
