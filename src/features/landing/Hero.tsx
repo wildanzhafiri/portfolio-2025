@@ -4,6 +4,8 @@ import { Container } from '../../components/layouts/Container';
 import { Reveal } from '../../components/ui/Reveal';
 import { useParallax } from '../../lib/scroll';
 import { Button } from '../../components/ui/Button';
+import { IconBriefcase, IconMessage, IconGithub, IconDownload } from '../../components/icons/HeroIcons';
+// import IconGithub from '../../assets/icons/github.png';
 
 const STATS = [
   { k: 'Projects', v: '12+' },
@@ -72,13 +74,23 @@ export function Hero() {
 
             <Reveal delay={0.14}>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button as="a" href="#projects" variant="primary">
+                <Button as="a" href="#projects" variant="primary" className="gap-2">
+                  <IconBriefcase className="shrink-0 opacity-90" />
                   View Work
                 </Button>
-                <Button as="a" href="#contact" variant="outline">
+
+                <Button as="a" href="#contact" variant="outline" className="gap-2">
+                  <IconMessage className="shrink-0 opacity-90" />
                   Let&apos;s Talk
                 </Button>
-                <Button as="a" href={`${import.meta.env.BASE_URL}resume/CV_Muhammad_Wildan_Zhafiri_2025.pdf`} download variant="outline">
+
+                <Button as="a" href="https://github.com/wildanzhafiri" variant="outline" className="inline-flex items-center gap-2">
+                  <IconGithub className="h-4 w-4 sm:h-[18px] sm:w-[18px] shrink-0" aria-hidden />
+                  <span className="leading-none">GitHub</span>
+                </Button>
+
+                <Button as="a" href={`${import.meta.env.BASE_URL}resume/CV_Muhammad_Wildan_Zhafiri_2025.pdf`} download variant="outline" className="gap-2">
+                  <IconDownload className="shrink-0 opacity-90" />
                   Download CV
                 </Button>
               </div>
