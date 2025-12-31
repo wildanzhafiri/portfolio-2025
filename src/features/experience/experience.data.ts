@@ -21,7 +21,7 @@ export const EXPERIENCE_DATA: readonly StoryItem[] = [
     title: 'First Place at Teknovistafest Web Design Competition',
     context: 'First Competition',
     story:
-      'This experience pushed me beyond learning basics and into real execution. Working under a tight deadline challenged me to learn faster, make decisions efficiently, and take responsibility for delivering a complete product. The competition was organized by Universitas Airlangga, giving me exposure to an academic yet highly competitive environment.',
+      'This competition at Universitas Airlangga was not only about design, but also about implementing it into real code and a working project. I worked with a JavaScript framework and REST APIs for the first time, while collaborating in a team and taking responsibility as the front-end developer under tight deadlines.',
     highlights: ['Learned and applied the React framework in a real project', 'Built a complete web application within a limited timeframe', 'Used Git for version control and collaborative development'],
     photo: {
       src: `${import.meta.env.BASE_URL}/images/dokum teknovistafest.png`,
@@ -49,7 +49,7 @@ export const EXPERIENCE_DATA: readonly StoryItem[] = [
     title: 'Expert Staff at the Communication and Information Center',
     context: 'Eksekutif Mahasiswa Universitas Brawijaya',
     story:
-      'This role introduced me to a more realistic working environment within an organization. In addition to development tasks, I was trusted to mentor internship staff and support collaborative projects. It helped me balance technical work with responsibility, coordination, and long-term impact.',
+      'This role introduced me to a more realistic working environment within an organization. In addition to development tasks, I worked on new features for the official website, including a program registration system using a form-based flow with autosave, similar to Google Forms. I was also involved in guiding internship staff during development and supporting collaborative work across the team.',
     highlights: ['Built and maintained an official organization website with a team', 'Mentored internship staff in developing an SDGs-focused project', 'Collaborated across roles to maintain consistency and quality'],
     photo: {
       src: `${import.meta.env.BASE_URL}/images/dokum ptpd.png`,

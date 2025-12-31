@@ -3,21 +3,22 @@ import { motion, type Variants } from 'framer-motion';
 
 const ITEMS = [
   {
-    title: 'Interface development',
-    desc: 'Building responsive and accessible interfaces from design to production.',
-    badge: 'UI',
+    title: 'Team collaboration',
+    desc: 'I work closely with others, share progress clearly, and keep tasks moving under deadlines.',
+    badge: 'Collab',
     tone: 'orange',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
-        <path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7Z" className="stroke-current" strokeWidth="1.8" />
-        <path d="M4 9h16" className="stroke-current" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M8 13h4M8 16h7" className="stroke-current" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M16 11a4 4 0 1 1-8 0a4 4 0 0 1 8 0Z" className="stroke-current" strokeWidth="1.8" />
+        <path d="M4 20c1.2-3.6 4.2-5.5 8-5.5s6.8 1.9 8 5.5" className="stroke-current" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M18.5 7.5l1.5 1.5l-3.2 3.2l-1.5-1.5" className="stroke-current" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
+
   {
     title: 'Turn ideas into features',
-    desc: 'From small interactions to complete pages, I focus on clarity and usability.',
+    desc: 'I focus on making features easy to understand and comfortable to use.',
     badge: 'Features',
     tone: 'amber',
     icon: (
