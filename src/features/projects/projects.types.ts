@@ -1,3 +1,7 @@
+export type GalleryItem = {
+  src: string;
+};
+
 export type ProjectTag =
   | 'React'
   | 'TypeScript'
@@ -26,6 +30,7 @@ export type Project = {
   role: string;
   tags: ProjectTag[];
   highlights: string[];
+  gallery?: GalleryItem[];
   links: {
     live?: string;
     github?: string;
