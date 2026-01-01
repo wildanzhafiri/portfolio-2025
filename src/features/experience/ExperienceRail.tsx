@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Reveal } from '../../components/ui/Reveal';
 import { EXPERIENCE_DATA } from './experience.data';
 import type { StoryItem } from './experience.types';
+import { ImageWithSkeleton } from '../../components/ui/ImageWithSkeleton';
 
 function Chip({ children }: { children: React.ReactNode }) {
   return (
@@ -47,6 +48,7 @@ function EvidenceHeroPhoto({ title, photo }: { title: string; photo: { src: stri
         transition duration-300
         hover:-translate-y-[1px] hover:shadow-[0_20px_50px_-28px_rgba(0,0,0,0.75)]
         focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/50
+        cursor-pointer
 
         /* RESPONSIVE SIZE */
         w-full sm:w-[200px] md:w-[220px] lg:w-[240px]
@@ -57,11 +59,17 @@ function EvidenceHeroPhoto({ title, photo }: { title: string; photo: { src: stri
       aria-label={`Open documentation for ${title}`}
       title="Open photo"
     >
-      <img src={photo.src} alt={photo.alt ?? title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]" />
-
+      \
+      <ImageWithSkeleton
+        src={photo.src}
+        alt={photo.alt ?? title}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full"
+        shimmerClassName="absolute inset-0 h-full w-full"
+        imgClassName="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]"
+      />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent opacity-95" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,146,60,0.22),transparent_55%)] opacity-80" />
-
       <div className="absolute bottom-2 left-2 flex items-center gap-2">
         <span className="rounded-full bg-black/35 text-white text-[10px] px-2.5 py-1 backdrop-blur border border-white/10">Photo</span>
         <span className="rounded-full bg-white/10 text-white text-[10px] px-2.5 py-1 backdrop-blur border border-white/10">Open</span>

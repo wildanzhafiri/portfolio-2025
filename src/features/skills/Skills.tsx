@@ -5,7 +5,7 @@ import { Reveal } from '../../components/ui/Reveal';
 const TECH_ROWS = [
   { label: 'Main', items: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
   { label: 'Data / API', items: ['REST APIs', 'GraphQL', 'Firebase'] },
-  { label: 'Tooling', items: ['Git (GitHub)', 'Postman', 'Figma'] },
+  { label: 'Tools', items: ['Git', 'Postman', 'Figma', 'Github'] },
   { label: 'Also used', items: ['Laravel', 'Express.js', 'Framer Motion', 'Midtrans'] },
 ] as const;
 
@@ -53,7 +53,7 @@ export function Skills() {
                     Tech stack
                   </div>
                   <h3 className="mt-4 text-lg sm:text-xl font-medium tracking-tight text-slate-900 dark:text-white">Tools I’ve worked with</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">Grouped by how I usually apply them in projects.</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">Organized by how they’re typically used in my work</p>
                 </div>
 
                 <div className="hidden sm:flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-white/[0.06] text-slate-700 dark:text-slate-100 no-ios-blur">

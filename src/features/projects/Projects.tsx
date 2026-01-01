@@ -5,7 +5,8 @@ import { Button } from '../../components/ui/Button';
 import type { Project, ProjectTag } from './projects.types';
 import { PROJECTS } from './projects.data';
 import { ProjectCard } from './ProjectCard';
-import { ProjectModal } from './ProjectModal';
+import { ProjectPreviewModal } from './ProjectPreviewModal';
+import { ProjectReveal } from '../../components/ui/ProjectReveal';
 
 const ALL = 'All' as const;
 type Filter = typeof ALL | ProjectTag;
@@ -18,20 +19,9 @@ const container: Variants = {
   },
 };
 
-const item: Variants = {
-  hidden: { opacity: 0, y: 14, scale: 0.985 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.45, ease: [0.2, 0.8, 0.2, 1] },
-  },
-  exit: { opacity: 0, y: 10, scale: 0.985, transition: { duration: 0.18 } },
-};
-
 export function Projects() {
   const [filter, setFilter] = useState<Filter>(ALL);
-  const [active, setActive] = useState<Project | null>(null);
+  const [preview, setPreview] = useState<Project | null>(null);
 
   const tags = useMemo(() => {
     const s = new Set<ProjectTag>();
@@ -63,7 +53,7 @@ export function Projects() {
         </div>
 
         <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }} className="relative">
-          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.05]">
+          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[40px] font-semibold tracking-tight leading-[1.05]">
             Recent{' '}
             <span className="relative inline-block">
               work
@@ -72,7 +62,7 @@ export function Projects() {
             on the web.
           </h2>
 
-          <p className="mt-4 max-w-2xl text-sm sm:text-base text-slate-800 dark:text-slate-300 leading-relaxed">A few recent projects, built with a focus on simplicity and ease of use.</p>
+          <p className="mt-4 max-w-3xl text-sm sm:text-base text-slate-800 dark:text-slate-300 leading-relaxed">Here are some recent projects I’ve worked on, where I gained valuable experience along the way</p>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.55, delay: 0.08, ease: [0.2, 0.8, 0.2, 1] }} className="mt-7">
@@ -129,16 +119,16 @@ export function Projects() {
       <LayoutGroup>
         <motion.div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }}>
           <AnimatePresence mode="popLayout">
-            {data.map((p) => (
-              <motion.div key={p.id} layout variants={item} initial="hidden" animate="show" exit="exit">
-                <ProjectCard project={p} onOpen={() => setActive(p)} />
-              </motion.div>
+            {data.map((p, i) => (
+              <ProjectReveal key={p.id} index={i}>
+                <ProjectCard project={p} onOpenDetail={() => setPreview(p)} />
+              </ProjectReveal>
             ))}
           </AnimatePresence>
         </motion.div>
       </LayoutGroup>
 
-      <ProjectModal project={active} onClose={() => setActive(null)} />
+      <ProjectPreviewModal project={preview} onClose={() => setPreview(null)} />
     </Section>
   );
 }

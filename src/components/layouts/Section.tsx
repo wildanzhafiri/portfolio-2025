@@ -6,7 +6,7 @@ export function Section({ id, title, subtitle, children, className }: { id: stri
     <section id={id} className={cn(' relative my-10 sm:my-20', className)}>
       <Container>
         <div className="mb-10">
-          <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight">{title}</h2>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-[40px] font-semibold tracking-tight leading-[1.05]">{title}</h2>
           {subtitle ? <p className="mt-2 text-slate-600 dark:text-slate-300">{subtitle}</p> : null}
         </div>
         {children}
