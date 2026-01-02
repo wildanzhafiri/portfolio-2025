@@ -33,12 +33,12 @@ export function About() {
 
             <div className="mt-5 space-y-4">
               <p className="text-slate-700 dark:text-slate-200 leading-relaxed">
-                I’m a front-end developer with a background in information technology, currently focused on building clear and intuitive web interfaces. I enjoy turning ideas into usable features, writing clean and structured code, and
-                paying attention to details that improve the overall experience.
+                I’m a third-year Information Technology student at Universitas Brawijaya with an interest in front-end development. I enjoy working on the visual side of the web and turning ideas into things people can actually use. I’m
+                used to collaborating on projects with people in different roles, sharing ideas, and working together toward a common goal.
               </p>
 
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                Through academic projects, organizational work, and teaching experiences, I’ve learned to collaborate in teams, communicate ideas clearly, and build interfaces that work well across different devices and users.
+                Through academic projects, organizational work, and teaching experiences, I’ve learned how to think through problems, adapt to feedback, and shape ideas into things that are genuinely useful.
               </p>
             </div>
           </div>
@@ -50,8 +50,7 @@ export function About() {
 
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-[11px] font-medium tracking-[0.14em] uppercase text-slate-500 dark:text-slate-400">Focus</p>
-                <h3 className="mt-2 text-base font-medium tracking-tight text-slate-900 dark:text-white">What I’m exploring</h3>
+                <h3 className="mt-2 text-base font-medium tracking-tight text-slate-900 dark:text-white">What I’m growing through</h3>
               </div>
 
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl border border-slate-200/70 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] text-slate-700 dark:text-slate-200">
@@ -62,20 +61,17 @@ export function About() {
               </span>
             </div>
 
-            <div className="mt-5 h-px w-full bg-gradient-to-r from-transparent via-slate-200/80 to-transparent dark:via-white/10" />
+            <div className="mt-2 h-px w-full bg-gradient-to-r from-transparent via-slate-200/80 to-transparent dark:via-white/10" />
 
             <ul className="mt-5 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              {[
-                'Still learning every day, especially by building and shipping small things',
-                'Exploring different UI patterns and what makes interfaces feel “right”',
-                'Getting better at collaborating and communicating in team environments',
-                'Teaching/mentoring has helped me understand concepts more deeply',
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400/80" />
-                  <span>{item}</span>
-                </li>
-              ))}
+              {['Still learning front-end best practices through real projects', 'Getting better at collaborating and communicating in team environments', 'Teaching and mentoring help me deepen my understanding of core concepts'].map(
+                (item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400/80" />
+                    <span>{item}</span>
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </Reveal>

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Section } from '../../components/layouts/Section';
 import { Reveal } from '../../components/ui/Reveal';
+import { getSkillIcon } from '../../components/icons/SkillIcons';
 
 const TECH_ROWS = [
   { label: 'Main', items: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
@@ -11,11 +11,13 @@ const TECH_ROWS = [
 
 const SOFT_SKILLS = ['Problem Solving', 'Team Collaboration', 'Time Management', 'Adaptability', 'Continuous Learning'] as const;
 
-function Chip({ children }: { children: React.ReactNode }) {
+function Chip({ label }: { label: string }) {
+  const Icon = getSkillIcon(label);
+
   return (
     <span
       className="
-       inline-flex items-center rounded-full
+       inline-flex items-center gap-2 rounded-full
         border border-slate-200/70 dark:border-white/18
         bg-white/75 dark:bg-white/14
         px-3 py-1 text-xs font-medium
@@ -26,7 +28,8 @@ function Chip({ children }: { children: React.ReactNode }) {
         no-ios-blur
       "
     >
-      {children}
+      {Icon ? <Icon className="h-4 w-4 text-slate-700/90 dark:text-white/85" /> : null}
+      <span>{label}</span>
     </span>
   );
 }
@@ -50,9 +53,9 @@ export function Skills() {
               <div className="flex items-start justify-between gap-6">
                 <div>
                   <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 dark:border-white/10 bg-white/75 dark:bg-white/[0.06] px-3 py-1 text-[11px] font-medium tracking-[0.14em] uppercase text-slate-600 dark:text-slate-200 no-ios-blur">
-                    Tech stack
+                    Technical Skills
                   </div>
-                  <h3 className="mt-4 text-lg sm:text-xl font-medium tracking-tight text-slate-900 dark:text-white">Tools I’ve worked with</h3>
+                  <h3 className="mt-4 text-lg sm:text-xl font-medium tracking-tight text-slate-900 dark:text-white">Tech Stack</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">Organized by how they’re typically used in my work</p>
                 </div>
 
@@ -76,7 +79,7 @@ export function Skills() {
                     <div className="sm:col-span-9">
                       <div className="flex flex-wrap gap-2">
                         {row.items.map((it) => (
-                          <Chip key={it}>{it}</Chip>
+                          <Chip key={it} label={it} />
                         ))}
                       </div>
                     </div>
@@ -103,27 +106,32 @@ export function Skills() {
             <div className="relative">
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 dark:border-white/10 bg-white/75 dark:bg-white/[0.06] px-3 py-1 text-[11px] font-medium tracking-[0.14em] uppercase text-slate-600 dark:text-slate-200 no-ios-blur">
                 Soft skills
-                <span className="h-1 w-1 rounded-full bg-orange-400/80" />
               </div>
 
               <h3 className="mt-4 text-base sm:text-lg font-medium tracking-tight text-slate-900 dark:text-white">How I like to work</h3>
 
               <div className="mt-5 space-y-3">
-                {SOFT_SKILLS.map((s) => (
-                  <div
-                    key={s}
-                    className="
-                      flex items-center justify-between rounded-2xl border
-                      border-slate-200/70 dark:border-white/12
-                      bg-white/80 dark:bg-slate-900/45
-                      px-4 py-3
-                      no-ios-blur
-                    "
-                  >
-                    <span className="text-sm text-slate-700 dark:text-slate-100">{s}</span>
-                    <span className="h-2 w-2 rounded-full bg-orange-400/70" />
-                  </div>
-                ))}
+                {SOFT_SKILLS.map((s) => {
+                  const Icon = getSkillIcon(s);
+                  return (
+                    <div
+                      key={s}
+                      className="
+                        flex items-center justify-between rounded-2xl border
+                        border-slate-200/70 dark:border-white/12
+                        bg-white/80 dark:bg-slate-900/45
+                        px-4 py-3
+                        no-ios-blur
+                      "
+                    >
+                      <span className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-100">
+                        {Icon ? <Icon className="h-4 w-4 text-slate-700/85 dark:text-white/80" /> : null}
+                        {s}
+                      </span>
+                      <span className="h-2 w-2 rounded-full bg-orange-400/70" />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

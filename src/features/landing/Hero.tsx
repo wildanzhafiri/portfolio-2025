@@ -35,7 +35,7 @@ export function Hero() {
         relative overflow-hidden scroll-mt-24
         min-h-[calc(100svh-84px)]
         flex items-center
-        py-10 sm:py-12
+        pt-10 sm:pt-12
       "
     >
       <Container className="relative w-full">
@@ -53,22 +53,22 @@ export function Hero() {
             </motion.div>
 
             <Reveal delay={0.05}>
-              <h1 className="mt-8 text-balance font-display text-4xl sm:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight text-slate-900 dark:text-white">
-                Hi, I&apos;m <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent dark:bg-none dark:text-white">Wildan</span>.
-                <span className="block mt-2 text-slate-800 dark:text-white/90">
-                  I turn ideas into{' '}
-                  <span className="relative inline-block ">
-                    digital experiences
-                    <span className="pointer-events-none absolute -bottom-1 left-0 right-0 h-[6px] rounded-full bg-orange-400/25" />
-                  </span>{' '}
-                  on the web.
-                </span>
-              </h1>
+                <h1 className="mt-8 text-balance font-display text-4xl sm:text-5xl xl:text-[53px] font-semibold leading-tight tracking-tight text-slate-900 dark:text-white">
+                  Hi, I&apos;m <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent dark:bg-none dark:text-white">Wildan</span>.
+                  <span className="block mt-2 text-slate-800 dark:text-white/90">
+                    I turn ideas into{' '}
+                    <span className="relative inline-block ">
+                      digital experiences
+                      <span className="pointer-events-none absolute -bottom-1 left-0 right-0 h-[6px] rounded-full bg-orange-400/25" />
+                    </span>{' '}
+                    on the web.
+                  </span>
+                </h1>
             </Reveal>
 
             <Reveal delay={0.1}>
               <p className="mt-5 max-w-2xl text-slate-600 dark:text-slate-300 leading-relaxed text-base sm:text-lg">
-                I enjoy building interfaces and getting better by working on real problems. I’m drawn to the space between ideas and execution.
+                I’m a front-end web developer who enjoys building web interfaces and growing through real-world projects. I’m used to collaborating on projects and turning shared ideas into reliable web solutions.
               </p>
             </Reveal>
 
@@ -135,7 +135,7 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <div className="order-1 lg:order-2 pt-10 sm:pt-5 md:pt-0">
+          <div className="order-1 lg:order-2 pt-7 sm:pt-5 md:pt-0">
             <div className="relative mx-auto w-full max-w-[460px]">
               <motion.div ref={orbRef} initial={{ opacity: 0, y: 16, rotate: -1.5 }} whileInView={{ opacity: 1, y: 0, rotate: 0 }} viewport={{ once: true, amount: 0.6 }} transition={{ duration: 0.7, ease: 'easeOut' }} className="relative">
                 {/* <div className="absolute -inset-2 rounded-[36px] opacity-70 blur-2xl bg-[conic-gradient(from_180deg,rgba(249,115,22,0.35),rgba(20,184,166,0.30),rgba(56,189,248,0.24),rgba(249,115,22,0.35))]" /> */}
