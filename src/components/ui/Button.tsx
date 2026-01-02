@@ -24,7 +24,7 @@ const VARIANTS: Record<ButtonVariant, string> = {
     'rounded-full font-semibold ' +
     'text-slate-800 dark:text-slate-100 ' +
     'border border-slate-900/10 dark:border-white/12 ' +
-    'bg-white/80 dark:bg-slate-900/55 ' + 
+    'bg-white/80 dark:bg-slate-900/55 ' +
     'hover:bg-white dark:hover:bg-slate-900/70 ' +
     'shadow-[0_10px_24px_rgba(2,6,23,0.10)] ' +
     'backdrop-blur-none',
@@ -67,7 +67,7 @@ export function Button<T extends React.ElementType = 'button'>({ as, variant = '
     <Comp
       {...props}
       className={cn(
-        'inline-flex items-center justify-center gap-2',
+        'inline-flex items-center justify-center gap-2 cursor-pointer',
         'transition-[background-color,color,border-color,transform,box-shadow] duration-200',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
         'ring-offset-[rgb(var(--bg))]',
