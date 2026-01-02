@@ -53,17 +53,17 @@ export function Hero() {
             </motion.div>
 
             <Reveal delay={0.05}>
-                <h1 className="mt-8 text-balance font-display text-4xl sm:text-5xl xl:text-[53px] font-semibold leading-tight tracking-tight text-slate-900 dark:text-white">
-                  Hi, I&apos;m <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent dark:bg-none dark:text-white">Wildan</span>.
-                  <span className="block mt-2 text-slate-800 dark:text-white/90">
-                    I turn ideas into{' '}
-                    <span className="relative inline-block ">
-                      digital experiences
-                      <span className="pointer-events-none absolute -bottom-1 left-0 right-0 h-[6px] rounded-full bg-orange-400/25" />
-                    </span>{' '}
-                    on the web.
-                  </span>
-                </h1>
+              <h1 className="mt-8 text-balance font-display text-4xl sm:text-5xl xl:text-[53px] font-semibold leading-tight tracking-tight text-slate-900 dark:text-white">
+                Hi, I&apos;m <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent dark:bg-none dark:text-white">Wildan</span>.
+                <span className="block mt-2 text-slate-800 dark:text-white/90">
+                  I turn ideas into{' '}
+                  <span className="relative inline-block ">
+                    digital experiences
+                    <span className="pointer-events-none absolute -bottom-1 left-0 right-0 h-[6px] rounded-full bg-orange-400/25" />
+                  </span>{' '}
+                  on the web.
+                </span>
+              </h1>
             </Reveal>
 
             <Reveal delay={0.1}>
@@ -165,7 +165,7 @@ export function Hero() {
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur px-4 py-3">
                         <p className="text-sm font-semibold text-white">Muhammad Wildan Zhafiri</p>
-                        <p className="text-xs text-white/80">Student | Learner | Explorer</p>
+                        <p className="text-xs text-white/80">Frontend Developer | Student </p>
                       </div>
                     </div>
                   </div>
@@ -190,8 +190,8 @@ export function Hero() {
                 transition={{ duration: 0.55, delay: 0.16, ease }}
                 className="absolute -right-2 bottom-16 sm:-right-8 rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 px-4 py-3 text-xs text-slate-700 dark:text-white backdrop-blur shadow-[0_18px_60px_rgba(15,23,42,0.25)]"
               >
-                <p className="uppercase tracking-[0.2em] text-slate-500 dark:text-white/70">Focus</p>
-                <p className="mt-1 font-semibold">Frontend Development</p>
+                <p className="uppercase tracking-[0.2em] text-slate-500 dark:text-white/70">Open to</p>
+                <p className="mt-1 font-semibold">New opportunities</p>
               </motion.div>
             </div>
           </div>
