@@ -8,10 +8,9 @@ export const PROJECTS: readonly Project[] = [
     role: 'Front-end Developer',
     tags: ['React', 'TypeScript', 'Tailwind', 'Framer Motion', 'Rest API'],
     highlights: [
-      'Multi-step pickup request (user & location → items → verification summary)',
+      'Implemented a multi-step pickup request flow including user and location details, item selection, and verification summary.',
       'Slot-based scheduling per RW capacity + admin slot management',
       'Tracking page using booking code with status progression',
-      'Field officer reporting with photo evidence upload',
     ],
     gallery: [
       { src: `${import.meta.env.BASE_URL}projects/bulkyhub/bulkyhub-landingpage.png` },
@@ -41,10 +40,10 @@ export const PROJECTS: readonly Project[] = [
     role: 'Front-end Developer',
     tags: ['React', 'TypeScript', 'Tailwind', 'Rest API'],
     highlights: [
-      'Complaint form with required fields + photo upload',
-      'Ticket confirmation page + report history (list & detail)',
-      'Status tracking: New / In Review / Rejected / Resolved',
-      'Admin dashboard to review reports and update status with confirmation',
+      'Developed a smart-city complaint reporting web app with ticket-based tracking and admin resolution flow.',
+      'Built complaint submission form with validation and photo upload',
+      'Implemented report history with list and detail views, along with status tracking including New, In Review, Rejected, and Resolved.',
+      'Created admin dashboard to verify reports and update status with confirmation.',
     ],
     image: `${import.meta.env.BASE_URL}projects/laporin.png`,
     gallery: [
@@ -71,9 +70,9 @@ export const PROJECTS: readonly Project[] = [
     role: 'Front-end Developer',
     tags: ['React', 'InertiaJS', 'Laravel', 'Tailwind', 'Framer Motion'],
     highlights: [
-      'Batik catalog with region-based exploration + detailed overview per motif',
-      'Interactive quiz module to increase engagement (gamified learning)',
-      'Authentication (login/register) and profile experience',
+      'Built an educational platform to explore Indonesian batik motifs through catalog, stories, and interactive quizzes.',
+      'Developed gamified quiz module to boost engagement and learning retention.',
+      'Delivered admin dashboard for managing batik content and quiz questions.',
       'Admin dashboard for managing batik/quizzes content',
       'Marketplace direction for finding batik products (external purchase flow)',
     ],
@@ -100,11 +99,9 @@ export const PROJECTS: readonly Project[] = [
     role: 'Front-end Developer',
     tags: ['React', 'TypeScript', 'Tailwind', 'Midtrans', 'Rest API'],
     highlights: [
-      'Concert catalog with search/filter and detailed event pages',
-      'Simple booking flow with minimal steps and form validation',
-      'Integrated payments via Midtrans (bank transfer, e-wallet, QRIS) with real-time confirmation',
-      'E-ticket management with purchase history',
-      'Organizer dashboard for event/ticket category management + sales analytics',
+      'Built a concert ticketing web app with streamlined booking flow and event catalog.',
+      'Integrated payment gateway using Midtrans with payment status handling from API response.',
+      'Developed purchase history for completed transactions.',
     ],
     image: `${import.meta.env.BASE_URL}projects/ticketbuzz.png`,
     gallery: [
