@@ -142,7 +142,7 @@ export function Hero() {
               <motion.div ref={orbRef} initial={{ opacity: 0, y: 16, rotate: -1.5 }} whileInView={{ opacity: 1, y: 0, rotate: 0 }} viewport={{ once: true, amount: 0.6 }} transition={{ duration: 0.7, ease: 'easeOut' }} className="relative">
                 {/* <div className="absolute -inset-2 rounded-[36px] opacity-70 blur-2xl bg-[conic-gradient(from_180deg,rgba(249,115,22,0.35),rgba(20,184,166,0.30),rgba(56,189,248,0.24),rgba(249,115,22,0.35))]" /> */}
 
-                <div className="relative overflow-hidden rounded-[34px] border border-white/15 bg-transparent dark:bg-white/5 backdrop-blur shadow-[0_35px_120px_rgba(15,23,42,0.25)]">
+                <div className="relative overflow-hidden rounded-[34px] border border-white/15 bg-white/70 dark:bg-white/5 backdrop-blur shadow-[0_35px_120px_rgba(15,23,42,0.25)]">
                   <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.24)_1px,transparent_1px)] bg-[size:100%_12px]" />
                   <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle,rgba(15,23,42,0.55)_1px,transparent_1px)] bg-[size:18px_18px]" />
                   <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl opacity-40 bg-[radial-gradient(circle_at_30%_30%,rgba(249,115,22,0.55),transparent_60%)]" />

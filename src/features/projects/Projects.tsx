@@ -49,7 +49,14 @@ export function Projects() {
             [mask-image:radial-gradient(60%_60%_at_50%_30%,black,transparent)]
           "
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_25%,rgba(249,115,22,0.22),transparent_52%),radial-gradient(circle_at_78%_22%,rgba(20,184,166,0.18),transparent_55%),radial-gradient(circle_at_55%_88%,rgba(56,189,248,0.14),transparent_60%)]" />
+          <div
+            className="
+    absolute inset-0
+    bg-[radial-gradient(circle_at_18%_25%,rgba(249,115,22,0.22),transparent_52%),
+        radial-gradient(circle_at_82%_20%,rgba(251,191,36,0.16),transparent_56%),
+        radial-gradient(circle_at_58%_86%,rgba(249,115,22,0.12),transparent_62%)]
+  "
+          />
         </div>
 
         <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }} className="relative">
@@ -77,7 +84,7 @@ export function Projects() {
             <motion.div
               className="
                 absolute inset-y-2 rounded-xl
-                bg-gradient-to-r from-orange-500/15 via-amber-400/10 to-teal-400/15
+                bg-gradient-to-r from-orange-500/15 to-amber-400/10
                 border border-orange-500/15 dark:border-orange-400/10
               "
               layout
