@@ -128,7 +128,6 @@ export function Skills() {
                         {Icon ? <Icon className="h-4 w-4 text-slate-700/85 dark:text-white/80" /> : null}
                         {s}
                       </span>
-                      <span className="h-2 w-2 rounded-full bg-orange-400/70" />
                     </div>
                   );
                 })}
