@@ -58,21 +58,21 @@ export function AuroraBackground({ className }: { className?: string }) {
 
   return (
     <div ref={ref} className={cn('fixed inset-0 -z-10 overflow-hidden', className)}>
-      {/* Base */}
       <div
         className="
-          absolute inset-0
-          bg-[radial-gradient(1200px_circle_at_14%_12%,rgba(249,115,22,0.09),transparent_62%),
-              radial-gradient(900px_circle_at_86%_18%,rgba(13,148,136,0.04),transparent_66%)]
-          dark:bg-[radial-gradient(circle_at_22%_16%,rgba(245,158,11,0.12),transparent_62%),
-              radial-gradient(circle_at_80%_20%,rgba(250,204,21,0.08),transparent_60%),
-              radial-gradient(circle_at_50%_88%,rgba(45,212,191,0.07),transparent_62%)]
-        "
+    absolute inset-0
+    bg-[linear-gradient(135deg,rgba(234,88,12,0.40)_0%,rgba(251,146,60,0.34)_28%,rgba(253,224,71,0.26)_58%,rgba(254,252,232,0.12)_100%),
+        radial-gradient(1200px_circle_at_18%_14%,rgba(249,115,22,0.44),transparent_56%),
+        radial-gradient(1050px_circle_at_84%_18%,rgba(253,224,71,0.38),transparent_60%),
+        radial-gradient(900px_circle_at_50%_92%,rgba(234,88,12,0.26),transparent_62%)]
+    dark:bg-[linear-gradient(135deg,rgba(194,65,12,0.22)_0%,rgba(234,88,12,0.18)_38%,rgba(251,191,36,0.14)_68%,rgba(0,0,0,0)_100%),
+        radial-gradient(1100px_circle_at_18%_14%,rgba(234,88,12,0.30),transparent_58%),
+        radial-gradient(900px_circle_at_84%_18%,rgba(253,224,71,0.22),transparent_62%),
+        radial-gradient(900px_circle_at_50%_92%,rgba(194,65,12,0.18),transparent_64%)]
+  "
       />
 
-      {/* Modern edge patches (light only) */}
       <div className="absolute inset-0 dark:hidden">
-        {/* Left edge patches */}
         <div
           className="absolute inset-y-0 left-0 w-[38vw] max-w-[620px] opacity-[0.55] blur-[22px]"
           style={{
@@ -87,7 +87,6 @@ export function AuroraBackground({ className }: { className?: string }) {
           }}
         />
 
-        {/* Right edge patches */}
         <div
           className="absolute inset-y-0 right-0 w-[38vw] max-w-[620px] opacity-[0.55] blur-[22px]"
           style={{
@@ -103,29 +102,29 @@ export function AuroraBackground({ className }: { className?: string }) {
         />
       </div>
 
-      {/* Soft glow blobs (overall ambience) */}
       <div className={cn('absolute -inset-[38%] opacity-[0.62] blur-[120px] mix-blend-multiply dark:mix-blend-normal', reducedMotion && 'opacity-50 blur-[80px]')}>
         <div
-          className="absolute left-[6%] top-[4%] h-[720px] w-[920px] rounded-full"
+          className="absolute left-[2%] top-[0%] h-[760px] w-[980px] rounded-full"
           style={{
-            background: 'radial-gradient(circle at 34% 34%, rgba(249,115,22,0.30) 0%, rgba(251,191,36,0.18) 36%, rgba(249,115,22,0.08) 60%, rgba(249,115,22,0.0) 78%)',
+            background: 'radial-gradient(circle at 34% 34%, rgba(255,220,120,0.52) 0%, rgba(255,180,60,0.34) 38%, rgba(255,122,24,0.18) 62%, rgba(255,122,24,0.0) 84%)',
           }}
         />
+
         <div
-          className="absolute left-[48%] top-[10%] h-[620px] w-[820px] rounded-full"
+          className="absolute left-[44%] top-[6%] h-[680px] w-[880px] rounded-full"
           style={{
-            background: 'radial-gradient(circle at 44% 40%, rgba(251,191,36,0.22) 0%, rgba(249,115,22,0.12) 42%, rgba(249,115,22,0.05) 66%, rgba(249,115,22,0.0) 82%)',
+            background: 'radial-gradient(circle at 46% 40%, rgba(255,246,210,0.34) 0%, rgba(255,220,120,0.26) 36%, rgba(255,180,60,0.18) 62%, rgba(255,122,24,0.0) 86%)',
           }}
         />
+
         <div
-          className="absolute left-[18%] top-[56%] h-[660px] w-[860px] rounded-full"
+          className="absolute left-[18%] top-[52%] h-[720px] w-[980px] rounded-full"
           style={{
-            background: 'radial-gradient(circle at 50% 46%, rgba(249,115,22,0.18) 0%, rgba(251,191,36,0.12) 44%, rgba(249,115,22,0.05) 68%, rgba(249,115,22,0.0) 84%)',
+            background: 'radial-gradient(circle at 50% 46%, rgba(255,180,60,0.34) 0%, rgba(255,220,120,0.20) 44%, rgba(255,246,210,0.12) 70%, rgba(255,122,24,0.0) 88%)',
           }}
         />
       </div>
 
-      {/* Aurora swirl */}
       <div className={cn('absolute -inset-[40%] opacity-40 dark:opacity-60 blur-3xl', reducedMotion && 'opacity-28 blur-2xl')}>
         <div
           className={cn(
@@ -135,7 +134,6 @@ export function AuroraBackground({ className }: { className?: string }) {
         />
       </div>
 
-      {/* Cursor glow (smaller + soft) */}
       <div
         className="absolute inset-0 transition-opacity duration-200 will-change-[background]"
         style={{
@@ -149,7 +147,6 @@ export function AuroraBackground({ className }: { className?: string }) {
         }}
       />
 
-      {/* Particles */}
       <div className="absolute inset-0">
         {particles.map((p) => (
           <span
@@ -168,7 +165,6 @@ export function AuroraBackground({ className }: { className?: string }) {
         ))}
       </div>
 
-      {/* Vignette */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,transparent_0%,rgba(15,23,42,0.02)_62%,rgba(15,23,42,0.05)_100%)] dark:bg-[radial-gradient(circle_at_50%_10%,transparent_0%,rgba(0,0,0,0.38)_62%,rgba(0,0,0,0.72)_100%)]" />
     </div>
   );
