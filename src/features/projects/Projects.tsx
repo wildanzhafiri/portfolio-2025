@@ -1,15 +1,15 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, LayoutGroup, motion, type Variants } from 'framer-motion';
 import { Section } from '../../components/layouts/Section';
 import { Button } from '../../components/ui/Button';
-import type { Project, ProjectTag } from './projects.types';
+import type { Project } from './projects.types';
 import { PROJECTS } from './projects.data';
 import { ProjectCard } from './ProjectCard';
 import { ProjectPreviewModal } from './ProjectPreviewModal';
 import { ProjectReveal } from '../../components/ui/ProjectReveal';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ALL = 'All' as const;
-type Filter = typeof ALL | ProjectTag;
+const PAGE_SIZE = 6;
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -19,25 +19,49 @@ const container: Variants = {
   },
 };
 
-export function Projects() {
-  const [filter, setFilter] = useState<Filter>(ALL);
-  const [preview, setPreview] = useState<Project | null>(null);
+const pageSlideVariants: Variants = {
+  enter: (direction: number) => ({
+    opacity: 0,
+    x: direction > 0 ? 80 : -80,
+  }),
+  center: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.4, ease: [0.2, 0.8, 0.2, 1] },
+  },
+  exit: (direction: number) => ({
+    opacity: 0,
+    x: direction > 0 ? -80 : 80,
+    transition: { duration: 0.3, ease: [0.2, 0.8, 0.2, 1] },
+  }),
+};
 
-  const tags = useMemo(() => {
-    const s = new Set<ProjectTag>();
-    PROJECTS.forEach((p) => p.tags.forEach((t) => s.add(t)));
-    return Array.from(s);
+export function Projects() {
+  const [preview, setPreview] = useState<Project | null>(null);
+  const [page, setPage] = useState(1);
+  const [direction, setDirection] = useState<1 | -1>(1);
+
+  const gridTopRef = useRef<HTMLDivElement | null>(null);
+
+  const totalPages = useMemo(() => {
+    return Math.max(1, Math.ceil(PROJECTS.length / PAGE_SIZE));
   }, []);
 
-  const data = useMemo(() => {
-    if (filter === ALL) return PROJECTS;
-    return PROJECTS.filter((p) => p.tags.includes(filter));
-  }, [filter]);
+  const paginatedData = useMemo(() => {
+    const start = (page - 1) * PAGE_SIZE;
+    return PROJECTS.slice(start, start + PAGE_SIZE);
+  }, [page]);
 
-  const activeIndex = useMemo(() => {
-    const list: Filter[] = [ALL, ...tags];
-    return list.findIndex((x) => x === filter);
-  }, [filter, tags]);
+  useEffect(() => {
+    if (!gridTopRef.current) return;
+    gridTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [page]);
+
+  const goToPage = (next: number) => {
+    if (next === page) return;
+    setDirection(next > page ? 1 : -1);
+    setPage(next);
+  };
 
   return (
     <Section id="projects" title="" subtitle="">
@@ -51,11 +75,11 @@ export function Projects() {
         >
           <div
             className="
-    absolute inset-0
-    bg-[radial-gradient(circle_at_18%_25%,rgba(249,115,22,0.22),transparent_52%),
-        radial-gradient(circle_at_82%_20%,rgba(251,191,36,0.16),transparent_56%),
-        radial-gradient(circle_at_58%_86%,rgba(249,115,22,0.12),transparent_62%)]
-  "
+              absolute inset-0
+              bg-[radial-gradient(circle_at_18%_25%,rgba(249,115,22,0.22),transparent_52%),
+                  radial-gradient(circle_at_82%_20%,rgba(251,191,36,0.16),transparent_56%),
+                  radial-gradient(circle_at_58%_86%,rgba(249,115,22,0.12),transparent_62%)]
+            "
           />
         </div>
 
@@ -71,69 +95,65 @@ export function Projects() {
 
           <p className="mt-4 max-w-3xl text-sm sm:text-base text-slate-800 dark:text-slate-300 leading-relaxed">Here are some recent projects I’ve worked on, where I gained valuable experience along the way</p>
         </motion.div>
-
-        <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.55, delay: 0.08, ease: [0.2, 0.8, 0.2, 1] }} className="mt-7">
-          <div
-            className="
-              relative inline-flex flex-wrap items-center gap-2
-              rounded-2xl border border-slate-200/60 dark:border-white/10
-              bg-white/60 dark:bg-white/5 backdrop-blur
-              p-2
-            "
-          >
-            <motion.div
-              className="
-                absolute inset-y-2 rounded-xl
-                bg-gradient-to-r from-orange-500/15 to-amber-400/10
-                border border-orange-500/15 dark:border-orange-400/10
-              "
-              layout
-              transition={{ type: 'spring', stiffness: 520, damping: 38 }}
-              style={{
-                left: `calc(${activeIndex} * (var(--pill-w) + 8px) + 8px)`,
-                width: 'var(--pill-w)',
-              }}
-            />
-
-            <div className="[--pill-w:92px] flex flex-wrap gap-2 relative z-10 ">
-              <Button
-                type="button"
-                size="sm"
-                variant={filter === ALL ? 'primary' : 'ghost'}
-                className={filter === ALL ? 'text-white !shadow-[0_14px_34px_rgba(249,115,22,0.22)] w-[var(--pill-w)]' : 'w-[var(--pill-w)]'}
-                onClick={() => setFilter(ALL)}
-              >
-                All
-              </Button>
-
-              {tags.map((t) => (
-                <Button
-                  key={t}
-                  type="button"
-                  size="sm"
-                  variant={filter === t ? 'primary' : 'pill'}
-                  className={['min-w-[88px] px-3', filter === t && 'text-white !shadow-[0_14px_34px_rgba(249,115,22,0.22)]'].filter(Boolean).join(' ')}
-                  onClick={() => setFilter(t)}
-                >
-                  {t}
-                </Button>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
 
+      <div ref={gridTopRef} className="h-px w-full" />
+
       <LayoutGroup>
-        <motion.div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }}>
-          <AnimatePresence mode="popLayout">
-            {data.map((p, i) => (
-              <ProjectReveal key={p.id} index={i}>
-                <ProjectCard project={p} onOpenDetail={() => setPreview(p)} />
-              </ProjectReveal>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <AnimatePresence mode="wait" initial={false} custom={direction}>
+          <motion.div key={page} custom={direction} variants={pageSlideVariants} initial="enter" animate="center" exit="exit">
+            <motion.div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" variants={container} initial="hidden" animate="show">
+              <AnimatePresence mode="popLayout">
+                {paginatedData.map((p, i) => (
+                  <ProjectReveal key={p.id} index={i}>
+                    <ProjectCard project={p} onOpenDetail={() => setPreview(p)} />
+                  </ProjectReveal>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </LayoutGroup>
+
+      {totalPages > 1 && (
+        <div className="mt-12 flex items-center justify-center">
+          <div
+            className="
+        inline-flex items-center gap-1.5
+        rounded-full
+        border border-slate-200/70 dark:border-white/10
+        bg-white/70 dark:bg-white/5 backdrop-blur
+        px-2 py-1.5
+        shadow-[0_12px_30px_rgba(2,6,23,0.08)]
+        dark:shadow-[0_18px_44px_rgba(0,0,0,0.35)]
+      "
+          >
+            <Button size="sm" variant="ghost" disabled={page === 1} className="rounded-full w-9 h-9 p-0" onClick={() => goToPage(page - 1)}>
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+
+            {Array.from({ length: totalPages }).map((_, i) => {
+              const p = i + 1;
+              const active = p === page;
+              return (
+                <Button
+                  key={p}
+                  size="sm"
+                  variant={active ? 'primary' : 'ghost'}
+                  className={['rounded-full w-9 h-9 p-0', active && 'text-white !shadow-[0_10px_28px_rgba(249,115,22,0.25)]'].filter(Boolean).join(' ')}
+                  onClick={() => goToPage(p)}
+                >
+                  {p}
+                </Button>
+              );
+            })}
+
+            <Button size="sm" variant="ghost" disabled={page === totalPages} className="rounded-full w-9 h-9 p-0" onClick={() => goToPage(page + 1)}>
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      )}
 
       <ProjectPreviewModal project={preview} onClose={() => setPreview(null)} />
     </Section>
