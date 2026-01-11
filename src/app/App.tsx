@@ -5,7 +5,7 @@ import { Skills } from '../features/skills/Skills';
 import { Experience } from '../features/experience/Experience';
 import { Projects } from '../features/projects/Projects';
 import { Contact } from '../features/contact/Contact';
-import { Highlights } from '../features/landing/Highlights';
+// import { Highlights } from '../features/landing/Highlights';
 import { AuroraBackground } from '../components/layouts/AuroraBackground';
 
 export default function App() {
