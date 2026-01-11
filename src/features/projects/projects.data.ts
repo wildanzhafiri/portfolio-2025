@@ -65,7 +65,7 @@ export const PROJECTS: readonly Project[] = [
   },
   {
     id: 'emub2025',
-    title: 'EM UB 2025 Website',
+    title: 'EM UB 2025 Website — Official Organizational Profile',
     description: 'A profile website for Eksekutif Mahasiswa Universitas Brawijaya 2025 featuring programs, organizational structure, about section, magazine content, and a new work program registration feature.',
     role: 'Front-end Developer',
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'GraphQL', 'Framer Motion'],
