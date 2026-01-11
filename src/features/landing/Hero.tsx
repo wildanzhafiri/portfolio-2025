@@ -108,49 +108,20 @@ export function Hero() {
                 ))}
               </div>
             </Reveal>
-
-            <Reveal delay={0.22}>
-              <div className="mt-8 flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
-                <a
-                  className="rounded-full px-4 py-2 transition border border-slate-200/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur hover:bg-white/90 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/40"
-                  href="https://github.com/wildanzhafiri"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-                <a
-                  className="rounded-full px-4 py-2 transition border border-slate-200/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur hover:bg-white/90 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/40"
-                  href="https://www.linkedin.com/in/muhammad-wildan-zhafiri-0a1921289/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  className="rounded-full px-4 py-2 transition border border-slate-200/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur hover:bg-white/90 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/40"
-                  href="mailto:wildan@example.com"
-                >
-                  Email
-                </a>
-              </div>
-            </Reveal>
           </div>
 
           <div className="order-1 lg:order-2 pt-7 sm:pt-5 md:pt-0">
             <div className="relative mx-auto w-full max-w-[460px]">
               <motion.div ref={orbRef} initial={{ opacity: 0, y: 16, rotate: -1.5 }} whileInView={{ opacity: 1, y: 0, rotate: 0 }} viewport={{ once: true, amount: 0.6 }} transition={{ duration: 0.7, ease: 'easeOut' }} className="relative">
-                {/* <div className="absolute -inset-2 rounded-[36px] opacity-70 blur-2xl bg-[conic-gradient(from_180deg,rgba(249,115,22,0.35),rgba(20,184,166,0.30),rgba(56,189,248,0.24),rgba(249,115,22,0.35))]" /> */}
-
-                <div className="relative overflow-hidden rounded-[34px] border border-white/15 bg-white/70 dark:bg-white/5 backdrop-blur shadow-[0_35px_120px_rgba(15,23,42,0.25)]">
+                <div className="relative overflow-hidden rounded-[34px] border border-white/15 bg-transparent dark:bg-white/5 backdrop-blur shadow-[0_35px_120px_rgba(15,23,42,0.25)]">
                   <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.24)_1px,transparent_1px)] bg-[size:100%_12px]" />
                   <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle,rgba(15,23,42,0.55)_1px,transparent_1px)] bg-[size:18px_18px]" />
                   <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl opacity-40 bg-[radial-gradient(circle_at_30%_30%,rgba(249,115,22,0.55),transparent_60%)]" />
 
                   <div className="relative aspect-[4/5] w-full max-h-[520px]">
-                    <img src={`${import.meta.env.BASE_URL}/images/profile2.png`} alt="Photo of Wildan" className="h-full w-full object-cover scale-[1.15] object-[50%_20%]" loading="eager" />
+                    <img src={`${import.meta.env.BASE_URL}/images/profile2.png`} alt="Photo of Wildan" className="h-full w-full object-cover scale-[1.35] object-[50%_20%]" loading="eager" />
 
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_45%),linear-gradient(to_top,rgba(2,6,23,0.64),transparent_55%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_52%),linear-gradient(to_top,rgba(2,6,23,0.52),transparent_62%)]" />
 
                     <motion.div
                       aria-hidden
@@ -193,7 +164,7 @@ export function Hero() {
                 className="absolute -right-2 bottom-16 sm:-right-8 rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 px-4 py-3 text-xs text-slate-700 dark:text-white backdrop-blur shadow-[0_18px_60px_rgba(15,23,42,0.25)]"
               >
                 <p className="uppercase tracking-[0.2em] text-slate-500 dark:text-white/70">Open to</p>
-                <p className="mt-1 font-semibold">New opportunities</p>
+                <p className="mt-1 font-semibold">New Opportunities</p>
               </motion.div>
             </div>
           </div>
