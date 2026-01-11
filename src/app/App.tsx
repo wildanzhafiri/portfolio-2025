@@ -16,7 +16,7 @@ export default function App() {
       <main className=" pt-[65px] md:pt-[72px]">
         <Hero />
         <About />
-        <Highlights />
+        {/* <Highlights /> */}
         <Skills />
         <Experience />
         <Projects />
