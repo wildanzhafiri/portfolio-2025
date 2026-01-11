@@ -5,10 +5,14 @@ export const EXPERIENCE_DATA: readonly StoryItem[] = [
     year: '2023',
     label: 'Foundation',
     title: 'Entering the World of Information Technology',
-    context: 'Journey Begins',
+    context: 'Early Exploration and Direction',
     story:
-      'This phase marked my initial entry into the IT world. I was still exploring different areas, learning the fundamentals, and trying to understand how technology is applied in real-world environments. It became a period of self-discovery, where I gradually shaped my learning direction and mindset toward building things.',
-    highlights: ['Explored multiple IT fields to identify a personal learning focus', 'Learned fundamental concepts of web and software development', 'Started understanding real-world workflows and project structures'],
+      'This phase marked my initial entry into the IT world and a period of broad exploration. I explored several areas of technology while learning core fundamentals, which helped me understand how digital systems are built and how different roles contribute to real world projects. During this process, I began to develop a growing interest in frontend development.',
+    highlights: [
+      'Explored multiple areas of information technology before forming a clearer learning direction',
+      'Learned fundamental concepts of web and software development',
+      'Began understanding how frontend development is used in real projects',
+    ],
     photo: {
       src: `${import.meta.env.BASE_URL}/images/dokum maba.png`,
       alt: 'Journey Begins',
@@ -21,22 +25,33 @@ export const EXPERIENCE_DATA: readonly StoryItem[] = [
     title: 'First Place at Teknovistafest Web Design Competition',
     context: 'First Competition',
     story:
-      'This competition at Universitas Airlangga was not only about design, but also about implementing it into real code and a working project. I worked with a JavaScript framework and REST APIs, collaborating in a team and taking responsibility as the front-end developer under tight deadlines.',
-    highlights: ['Learned and applied the React framework in a real project', 'Built a complete web application within a limited timeframe', 'Used Git for version control and collaborative development'],
+      'This competition at Universitas Airlangga was not only about design, but also about implementing it into real code and a working project. I worked with a JavaScript framework and REST APIs, collaborating in a team and taking responsibility as the frontend developer under tight deadlines.',
+    highlights: [
+      'Worked as the frontend developer using React to implement the application interface',
+      'Integrated REST APIs and handled dynamic data on the client side',
+      'Collaborated in a team environment under tight competition deadlines',
+    ],
+
     photo: {
       src: `${import.meta.env.BASE_URL}/images/dokum teknovistafest.png`,
       alt: 'Teknovistafest award',
       orientation: 'portrait',
     },
   },
+
   {
     year: '2025',
     label: 'Organization',
     title: 'Expert Staff at the Communication and Information Center',
     context: 'Eksekutif Mahasiswa Universitas Brawijaya',
     story:
-      'This role introduced me to a more realistic working environment within an organization. In addition to development tasks, I worked on new features for the official website, including a program registration system using a form-based flow with autosave, similar to Google Forms. I was also involved in guiding internship staff during development and supporting collaborative work across the team.',
-    highlights: ['Built and maintained an official organization website with a team', 'Mentored internship staff in developing an SDGs-focused project', 'Collaborated across roles to maintain consistency and quality'],
+      'This role introduced me to a more realistic working environment within an organization. In addition to development tasks, I worked on new features for the official website, including a program registration system using a form based flow with autosave, similar to Google Forms. I was also involved in guiding internship staff during development and supporting collaborative work across the team.',
+    highlights: [
+      'Developed and implemented new features for the official organization website',
+      'Guided internship staff during development of an SDGs focused project',
+      'Worked closely with different divisions to align technical implementation with organizational needs',
+    ],
+
     photo: {
       src: `${import.meta.env.BASE_URL}/images/dokum ptpd.png`,
       alt: 'Company Profile',
@@ -49,8 +64,8 @@ export const EXPERIENCE_DATA: readonly StoryItem[] = [
     title: 'Lab Assistant for Web Application Programming',
     context: 'Teaching Environment',
     story:
-      'Becoming a Lab Assistant changed how I approached learning. Explaining concepts to others required clarity and structure, which helped me identify gaps in my own understanding. This role strengthened both my technical foundation and my ability to communicate effectively.',
-    highlights: ['Guided students through weekly web development practicum sessions', 'Reviewed assignments and delivered clear, constructive feedback', 'Reinforced core fundamentals through teaching and mentoring'],
+      'As a Web Application Programming Lab Assistant, I guided students through weekly practicum sessions, explained core web development concepts in a structured way, and assisted them in debugging and completing their tasks. I also supported students who needed additional help during the learning process, strengthening both my technical foundation and communication skills.',
+    highlights: ['Guided students through weekly web development practicum sessions', 'Assisted students in debugging and completing their tasks', 'Reinforced core fundamentals through teaching and mentoring'],
     photo: {
       src: `${import.meta.env.BASE_URL}/images/dokum asprak.png`,
       alt: 'Dokumentasi Asprak',
