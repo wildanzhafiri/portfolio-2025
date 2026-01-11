@@ -18,9 +18,7 @@ export function About() {
             <div className="flex items-start justify-between gap-6">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] px-3 py-1 text-[11px] font-medium tracking-[0.14em] uppercase text-slate-600 dark:text-slate-300">
-                  About
-                  <span className="h-1 w-1 rounded-full bg-orange-400/80" />
-                  Wildan
+                  About Me
                 </div>
 
                 <h3 className="mt-4 text-lg sm:text-xl font-medium tracking-tight text-slate-900 dark:text-white">A bit of context</h3>
@@ -64,14 +62,12 @@ export function About() {
             <div className="mt-2 h-px w-full bg-gradient-to-r from-transparent via-slate-200/80 to-transparent dark:via-white/10" />
 
             <ul className="mt-5 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              {['Still learning front-end best practices through real projects', 'Getting better at collaborating and communicating in team environments', 'Teaching and mentoring help me deepen my understanding of core concepts'].map(
-                (item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400/80" />
-                    <span>{item}</span>
-                  </li>
-                )
-              )}
+              {['Still learning front-end best practices through real projects', 'Getting better at collaborating and communicating in team environments'].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400/80" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </Reveal>
