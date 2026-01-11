@@ -111,7 +111,9 @@ function ExperienceCard({ it }: { it: StoryItem }) {
         relative overflow-hidden
         rounded-[22px]
         border border-slate-200/80 dark:border-white/10
-        bg-white/90 dark:bg-slate-950/70
+         bg-white/80 dark:bg-white/5 backdrop-blur
+        transition
+        hover:-translate-y-0.5 hover:shadow-[0_30px_100px_rgba(249,115,22,0.18)]
         ring-1 ring-black/5 dark:ring-white/5
         shadow-[0_14px_42px_rgba(2,6,23,0.10)]
         dark:shadow-[0_22px_70px_rgba(0,0,0,0.35)]
