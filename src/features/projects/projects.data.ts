@@ -64,6 +64,38 @@ export const PROJECTS: readonly Project[] = [
     },
   },
   {
+    id: 'emub2025',
+    title: 'EM UB 2025 Website',
+    description: 'A profile website for Eksekutif Mahasiswa Universitas Brawijaya 2025 featuring programs, organizational structure, about section, magazine content, and a new work program registration feature.',
+    role: 'Front-end Developer',
+    tags: ['Next.js', 'TypeScript', 'Tailwind', 'GraphQL', 'Framer Motion'],
+    highlights: [
+      'Implemented the landing page and core navigation flow of the EM UB 2025 website',
+      'Built detailed work program pages and implemented an announcement feature',
+      'Developed a work program registration form with various input types and auto save functionality',
+      'Integrated Google authentication for user login and GraphQL for data handling across the site',
+    ],
+
+    image: `${import.meta.env.BASE_URL}projects/em2.png`,
+    gallery: [
+      { src: `${import.meta.env.BASE_URL}projects/em/em1.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em2.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em3.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em4.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em5.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em6.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em7.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em8.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em9.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em10.png` },
+      { src: `${import.meta.env.BASE_URL}projects/em/em11.png` },
+    ],
+    links: {
+      live: 'https://em.ub.ac.id/',
+      // github: 'https://github.com/...',
+    },
+  },
+  {
     id: 'kenalbatik',
     title: 'Kenal Batik — Cultural Education & Interactive Learning',
     description: 'An educational platform to explore Indonesian batik motifs with story-based content, interactive quizzes, and a curated catalog with marketplace directions.',
