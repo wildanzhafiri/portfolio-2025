@@ -52,16 +52,20 @@ export function Projects() {
     return PROJECTS.slice(start, start + PAGE_SIZE);
   }, [page]);
 
-  useEffect(() => {
-    if (!gridTopRef.current) return;
-    gridTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, [page]);
+  const shouldScrollRef = useRef(false);
 
   const goToPage = (next: number) => {
     if (next === page) return;
+    shouldScrollRef.current = true;
     setDirection(next > page ? 1 : -1);
     setPage(next);
   };
+
+  useEffect(() => {
+    if (!shouldScrollRef.current) return;
+    shouldScrollRef.current = false;
+    gridTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [page]);
 
   return (
     <Section id="projects" title="" subtitle="">
