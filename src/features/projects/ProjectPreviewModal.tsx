@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Button } from '../../components/ui/Button';
 import { cn } from '../../lib/cn';
 import type { Project } from './projects.types';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PreviewFrame, type GalleryItem } from './PreviewFrame';
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -159,22 +160,22 @@ export function ProjectPreviewModal({ project, onClose }: { project: Project | n
                             aria-label="Previous"
                             onClick={prev}
                             className="
-                              absolute left-3 top-1/2 -translate-y-1/2
-                              h-11 w-11 cursor-pointer
-                              rounded-full
-                              bg-white/85 dark:bg-slate-950/55
-                              text-slate-900 dark:text-white
-                              border border-white/60 dark:border-white/12
-                              shadow-[0_18px_50px_rgba(0,0,0,0.22)]
-                              backdrop-blur
-                              grid place-items-center
-                              transition
-                              hover:scale-[1.03] hover:bg-white dark:hover:bg-slate-950/70
-                              active:scale-[0.98]
-                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/60
-                            "
+    absolute left-3 top-1/2 -translate-y-1/2
+    h-11 w-11
+    rounded-full
+    bg-white/85 dark:bg-slate-950/55
+    text-slate-900 dark:text-white
+    border border-white/60 dark:border-white/12
+    shadow-[0_18px_50px_rgba(0,0,0,0.22)]
+    backdrop-blur
+    grid place-items-center
+    transition
+    hover:scale-[1.05] hover:bg-white dark:hover:bg-slate-950/70
+    active:scale-[0.97]
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/60
+  "
                           >
-                            <span className="text-xl leading-none">‹</span>
+                            <ChevronLeft className="h-5 w-5" />
                           </button>
 
                           <button
@@ -182,22 +183,22 @@ export function ProjectPreviewModal({ project, onClose }: { project: Project | n
                             aria-label="Next"
                             onClick={next}
                             className="
-                              absolute right-3 top-1/2 -translate-y-1/2
-                              h-11 w-11
-                              rounded-full cursor-pointer
-                              bg-white/85 dark:bg-slate-950/55
-                              text-slate-900 dark:text-white
-                              border border-white/60 dark:border-white/12
-                              shadow-[0_18px_50px_rgba(0,0,0,0.22)]
-                              backdrop-blur
-                              grid place-items-center
-                              transition
-                              hover:scale-[1.03] hover:bg-white dark:hover:bg-slate-950/70
-                              active:scale-[0.98]
-                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/60
-                            "
+    absolute right-3 top-1/2 -translate-y-1/2
+    h-11 w-11
+    rounded-full
+    bg-white/85 dark:bg-slate-950/55
+    text-slate-900 dark:text-white
+    border border-white/60 dark:border-white/12
+    shadow-[0_18px_50px_rgba(0,0,0,0.22)]
+    backdrop-blur
+    grid place-items-center
+    transition
+    hover:scale-[1.05] hover:bg-white dark:hover:bg-slate-950/70
+    active:scale-[0.97]
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/60
+  "
                           >
-                            <span className="text-xl leading-none">›</span>
+                            <ChevronRight className="h-5 w-5" />
                           </button>
                         </>
                       ) : null}
