@@ -5,6 +5,7 @@ import { cn } from '../../lib/cn';
 import type { Project } from './projects.types';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PreviewFrame, type GalleryItem } from './PreviewFrame';
+import { ArrowLeftRight, MoveVertical, X } from 'lucide-react';
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -13,6 +14,13 @@ export function ProjectPreviewModal({ project, onClose }: { project: Project | n
 
   const [isProjectLoading, setIsProjectLoading] = useState(true);
   const [active, setActive] = useState(0);
+
+  const [showHint, setShowHint] = useState(true);
+
+  useEffect(() => {
+    if (!open) return;
+    setShowHint(true);
+  }, [open, project?.id]);
 
   const gallery = useMemo<GalleryItem[]>(() => {
     if (!project) return [];
@@ -212,6 +220,66 @@ export function ProjectPreviewModal({ project, onClose }: { project: Project | n
                         </div>
                       ) : null}
                     </div>
+
+                    <AnimatePresence>
+                      {!isProjectLoading && showHint ? (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0, transition: { duration: 0.2, ease: easeOut } }}
+                          exit={{ opacity: 0, y: 6, transition: { duration: 0.16, ease: easeOut } }}
+                          className="
+        mt-3
+        flex items-start justify-between gap-3
+        rounded-2xl
+        border border-slate-200/70 dark:border-white/10
+        bg-white/70 dark:bg-white/5
+        px-3 py-2.5
+        shadow-[0_14px_50px_rgba(0,0,0,0.10)]
+        backdrop-blur
+      "
+                        >
+                          <div className="min-w-0">
+                            <p className="text-[11px] tracking-[0.16em] uppercase text-slate-500 dark:text-slate-300">Controls</p>
+
+                            <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] sm:text-sm text-slate-700 dark:text-slate-200">
+                              <span className="inline-flex items-center gap-1.5">
+                                <ArrowLeftRight className="h-4 w-4 opacity-80" />
+                                <span className="font-semibold">Arrows</span>
+                                <span className="opacity-80">to switch</span>
+                              </span>
+
+                              <span className="inline-flex items-center gap-1.5">
+                                <MoveVertical className="h-4 w-4 opacity-80" />
+                                <span className="font-semibold">Scroll</span>
+                                <span className="opacity-80">the image</span>
+                              </span>
+                            </div>
+                          </div>
+
+                          <button
+                            type="button"
+                            aria-label="Hide hints"
+                            onClick={() => setShowHint(false)}
+                            className="
+          shrink-0
+          h-9 w-9
+          rounded-full
+          border border-slate-200/70 dark:border-white/12
+          bg-white/80 dark:bg-slate-950/40
+          grid place-items-center
+          text-slate-700 dark:text-slate-200
+          shadow-[0_14px_40px_rgba(0,0,0,0.12)]
+          transition
+          hover:bg-white dark:hover:bg-slate-950/55
+          active:scale-[0.98]
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/60
+        "
+                          >
+                            <X className="h-4 w-4" />
+                          </button>
+                        </motion.div>
+                      ) : null}
+                    </AnimatePresence>
 
                     {!isProjectLoading && (project?.links.github || project?.links.live) ? (
                       <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:justify-start">
